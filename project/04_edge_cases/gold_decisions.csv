@@ -1,0 +1,12 @@
+sample_id,decision_id,expected,severity,rationale
+LISA20,d1,label=traffic_light x3,major,giàn đèn ngang nhìn thấy rõ thân vỏ 3 đầu đèn độc lập
+LISA20,d2,relevance=ego_lane x2,major,hai đầu đèn đi thẳng ở giữa và bên phải điều khiển trực tiếp làn xe chủ
+LISA20,d3,direction=left (đèn ngoài cùng bên trái),major,đầu đèn bên trái có biển phụ quay đầu và thấu kính mũi tên rẽ
+BDD18,d1,label=traffic_light,major,đầu đèn trên cột bên phải ngã tư quan sát được trong điều kiện ban đêm
+BDD18,d2,relevance=pedestrian,major,đèn tín hiệu người đi bộ treo ở tầm thấp trên cột bên phải
+BDD26,d1,state=green,major,đèn xanh đang sáng trên cột bên trái làn đường
+BDD26,d2,geometry:box ôm khít vỏ cứng không bao quầng sáng chóa,minor,tuân thủ quy tắc geometry no bloom glare ban đêm
+LISA25,d1,relevance=cross_traffic (đèn rẽ trái),critical,đèn rẽ trái đối lập hướng đi thẳng của xe chủ nếu gán nhầm thành ego_lane sẽ gây vượt đèn đỏ đâm va nguy hiểm
+LISA25,d2,state=red (đèn đi thẳng),critical,đèn đỏ điều khiển trực tiếp làn xe chủ bắt buộc dừng xe không được gán nhầm sang làn rẽ
+LISA28,d1,relevance=uncertain,major,góc chụp nghiêng và mất vạch kẻ làn đường cần gán uncertain
+LISA28,d2,needs_review=true,minor,cắm cờ thẩm định escalation cho trường hợp ambiguity tại góc giao lộ
