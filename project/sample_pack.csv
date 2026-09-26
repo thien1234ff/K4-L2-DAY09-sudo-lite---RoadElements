@@ -1,0 +1,16 @@
+sample_id,split,tags,reason
+LISA01,example,normal,Frame đầu chuỗi LISA xe tiếp cận ngã tư có giàn đèn ngang
+LISA02,example,normal,Frame tiếp theo nhìn rõ giàn đèn đỏ 3 đầu đèn
+BDD25,example,edge;low_visibility,Hoàng hôn chạng vạng đèn xanh sáng trên đại lộ
+LISA03,example,normal,Ngã tư có 3 đầu đèn đỏ trên cần vươn ngang làn xe nhìn rất rõ
+BDD07,calibration,normal,Hai đầu đèn vỏ vàng New York treo ngang làn xe nhìn rất rõ
+BDD02,calibration,normal,Giao lộ đường phố ban ngày với tín hiệu đèn giao thông góc phố
+LISA04,calibration,normal,Xe tiếp cận ngã tư với giàn 3 đầu đèn đỏ trên cần vươn
+LISA07,calibration,normal,Cự ly gần hơn nhìn rõ đèn mũi tên rẽ trái và đèn đi thẳng
+LISA10,calibration,edge;small_far,Giàn đèn đỏ chính diện làn xe cần vẽ tách từng đầu đèn
+LISA12,calibration,edge;conflict,Xe tiến sát giao lộ có phân luồng đèn rẽ và đèn đi thẳng
+LISA20,blind,normal,Ban ngày xe tiến sát nút giao nhìn rõ toàn bộ giàn đèn
+BDD18,blind,edge;low_visibility,Ban đêm ngã tư lớn nhiều đầu đèn treo cùng lúc
+BDD26,blind,edge;low_visibility,Ban đêm chóa sáng mạnh cần phân tách quầng sáng với vỏ đèn
+LISA25,blind,critical,Nút giao có đèn rẽ và đèn đi thẳng đối lập dễ gây critical failure nếu nhầm
+LISA28,blind,ambiguity;conflict,Đèn treo sát mép góc giao lộ nhìn nghiêng khó xác định luồng
