@@ -1,6 +1,6 @@
 # Annotation guideline — Trạng thái & tính liên quan của Đèn giao thông tại nút giao phức tạp
 
-**Version:** v2
+**Version:** v3
 
 ## 1. Objective + scope
 
@@ -30,6 +30,7 @@
   - Bao gồm cả phần nắp che che nắng (visors/hoods) gắn liền trên đỉnh các bóng đèn nếu có.
 - **Quy tắc quầng sáng (NO bloom / glare):**
   - Tuyệt đối **không** kéo box bao phủ quầng sáng chóa, tia sáng tán xạ quang học (lens flare/bloom) phát ra từ bóng đèn, đặc biệt trong ảnh ban đêm hoặc thời tiết mưa ẩm. Chỉ ôm sát phần vỏ cứng vật lý.
+  - *Quy tắc bổ sung v3 (Fallback ban đêm khi vỏ chìm vào bóng tối):* Nếu zoom 300% mà vỏ kim loại hoàn toàn chìm vào nền đen (như `BDD26`), vẽ bounding box ôm sát phần thấu kính/bóng đèn phát sáng thực tế, tuyệt đối không bao trùm quầng tán xạ bloom.
 - **Dung sai hình học (Geometry tolerance):** Lệch không quá $\le 3\text{ px}$ ở mỗi cạnh so với mép vỏ đèn thực tế.
 
 ## 4. Taxonomy
@@ -46,18 +47,19 @@ Mỗi box `traffic_light` phải được gán đầy đủ các thuộc tính s
    - `green`: Đèn xanh đang sáng (bóng tròn hoặc mũi tên xanh).
    - `off`: Đầu đèn đang tắt hoàn toàn (không có bóng nào phát sáng).
    - `unknown`: Không thể xác định màu do chóa lóa sáng, ngược sáng quá nặng, hoặc bị bóng lá che khuất tim đèn.
+   - *Quy tắc bổ sung v3 (Đèn người đi bộ & đếm ngược):* Bàn tay đỏ gán `state = red`. Hình người đi/số đếm ngược màu trắng sáng gán `state = green`.
 
 2. **`relevance`** (Tính liên quan tới làn xe chủ - Ego-relevance):
-   - `ego_lane`: Đèn đang trực tiếp điều khiển làn đường mà xe chủ đang di chuyển (đèn treo thẳng trên nóc làn, hoặc cột đèn điều khiển xe đi thẳng/làn hiện tại). *Quy tắc bổ sung v2:* Trên đường một chiều có nhiều làn (như `BDD02`), nếu các đầu đèn ở cột trái và cột phải cùng đồng bộ một trạng thái tín hiệu cho cả mặt đường thì tất cả đều là `ego_lane`.
+   - `ego_lane`: Đèn đang trực tiếp điều khiển làn đường mà xe chủ đang di chuyển (đèn treo thẳng trên nóc làn, hoặc cột đèn điều khiển xe đi thẳng/làn hiện tại). *Quy tắc bổ sung v2:* Trên đường một chiều có nhiều làn (như `BDD02`), nếu các đầu đèn ở cột trái và cột phải cùng đồng bộ một trạng thái tín hiệu cho cả mặt đường thì tất cả đều là `ego_lane`. *Quy tắc bổ sung v3:* Khi xe đứng sát vạch dừng không nhìn thấy vạch làn dưới bánh xe (như `LISA20`, `LISA25`), các đầu đèn đi thẳng trên cần vươn thẳng hướng tiến của xe mặc định là `ego_lane`.
    - `cross_traffic`: Đèn điều khiển xe ở luồng cắt ngang, xe ngược chiều, hoặc làn rẽ phụ đã có dải phân cách/vạch rẽ riêng biệt không thuộc hướng đi của xe chủ. *Quy tắc bổ sung v2:* Trên giàn đèn ngang ngã tư (như `LISA04`, `LISA07`), đầu đèn nào nằm cạnh biển phụ chỉ dẫn rẽ/quay đầu trái thì gán `cross_traffic` đối với xe đang đi thẳng.
    - `pedestrian`: Đèn tín hiệu dành riêng cho người đi bộ (có hình người đi bộ hoặc đèn kích thước nhỏ treo tầm thấp trên vỉa hè).
-   - `uncertain`: Nút giao quá phức tạp, mất vạch kẻ đường, góc chụp nghiêng không thể khẳng định chắc chắn đèn thuộc làn nào.
+   - `uncertain`: Nút giao quá phức tạp, mất vạch kẻ đường, góc chụp nghiêng không thể khẳng định chắc chắn đèn thuộc làn nào. *Quy tắc bổ sung v3:* Bắt buộc gán `uncertain` kèm `needs_review = true` khi góc chụp xiên > 45 độ mà không thể định vị luồng xe rõ ràng (như `LISA28`).
 
 3. **`direction`** (Hướng lưu thông chỉ định):
    - `straight`: Đèn có ký hiệu mũi tên đi thẳng.
    - `left`: Đèn có ký hiệu mũi tên rẽ trái (hoặc đầu đèn cạnh biển báo rẽ trái chuyên biệt).
    - `right`: Đèn có ký hiệu mũi tên rẽ phải.
-   - `general`: Đèn bóng tròn tiêu chuẩn điều khiển luồng phương tiện chung.
+   - `general`: Đèn bóng tròn tiêu chuẩn điều khiển luồng phương tiện chung, hoặc đèn người đi bộ.
 
 4. **`needs_review`** (Cờ thẩm định - Checkbox):
    - `false` (mặc định): Tự tin với quyết định.

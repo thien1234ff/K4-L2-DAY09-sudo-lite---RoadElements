@@ -1,8 +1,8 @@
-CVAT task reference — thay mọi placeholder mới là xong.
+CVAT task reference
 
-CVAT version: TODO
-Task calibration (tên, id): TODO
-Task bản cuối theo guideline v3 (tên, id) hoặc lý do không có: TODO
-File export đã nộp (đường dẫn trong repo): TODO
-Guideline version dán trong Guide của task: TODO
-Ghi chú cho người tiếp nhận: TODO
+CVAT version: v2.74.1
+Task calibration (tên, id): sudo-lite-calib-v1 (Task ID: 1)
+Task bản cuối theo guideline v3 (tên, id) hoặc lý do không có: sudo-lite-final-v3 (Task ID: 2)
+File export đã nộp (đường dẫn trong repo): project/06_calibration_exports/kiet.zip
+Guideline version dán trong Guide của task: v1 (calibration), v3 (final submission)
+Ghi chú cho người tiếp nhận: Sử dụng schema CVAT for images 1.1, nhãn traffic_light dạng rectangle ôm sát vỏ hộp đèn, tag image_escalate ở cấp ảnh khi giao lộ bị chóa lóa toàn phần.

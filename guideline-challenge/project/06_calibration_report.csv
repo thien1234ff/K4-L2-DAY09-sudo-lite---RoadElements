@@ -1,1 +1,4 @@
 sample_id,item,values_by_annotator,diagnosis,action,rule_change
+BDD02,relevance đèn treo góc trái ngã tư,"thien=ego_lane; kiet=cross_traffic; minh=cross_traffic",guideline_gap,revise_rule,"Làm rõ mục 4: Đèn treo góc trái trên đường một chiều nhiều làn điều khiển chung cả tuyến đường vẫn tính là ego_lane trừ khi có biển báo rẽ trái phụ riêng"
+LISA04,direction và relevance cho giàn 3 đèn,"thien=cross_traffic left; kiet=ego_lane straight",guideline_gap,revise_rule,"Làm rõ mục 4 và 9: Đối với giàn đèn ngang có biển báo rẽ/quay đầu phụ ở đầu đèn bên trái, đèn này phải gán direction=left và relevance=cross_traffic đối với luồng xe đi thẳng"
+BDD07,thuộc tính bị sót giá trị __undefined__,"thien=box 1 undefined; kiet=box 0 undefined",execution_error,coaching,"Bổ sung mục 10: Quy trình tự kiểm tra bắt buộc trước khi lưu - annotator phải kiểm tra sidebar Objects hoặc bật Attribute Annotation để đảm bảo không còn __undefined__"
