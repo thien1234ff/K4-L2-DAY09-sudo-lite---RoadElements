@@ -1,1 +1,43 @@
-[]
+[
+  {
+    "name": "traffic_light",
+    "color": "#F9A825",
+    "type": "rectangle",
+    "attributes": [
+      {
+        "name": "state",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "__undefined__",
+        "values": ["__undefined__", "red", "yellow", "green", "off", "unknown"]
+      },
+      {
+        "name": "relevance",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "__undefined__",
+        "values": ["__undefined__", "ego_lane", "cross_traffic", "pedestrian", "uncertain"]
+      },
+      {
+        "name": "direction",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "__undefined__",
+        "values": ["__undefined__", "straight", "left", "right", "general"]
+      },
+      {
+        "name": "needs_review",
+        "mutable": false,
+        "input_type": "checkbox",
+        "default_value": "false",
+        "values": ["false"]
+      }
+    ]
+  },
+  {
+    "name": "image_escalate",
+    "color": "#8E24AA",
+    "type": "tag",
+    "attributes": []
+  }
+]
